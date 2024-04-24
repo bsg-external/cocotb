@@ -22,7 +22,7 @@ SIM ?= vcs
 TOPLEVEL_LANG ?= verilog
 
 # basejump_stl path
-export BASEJUMP_STL_DIR = $(PWD)/../../../../basejump_stl
+export BASEJUMP_STL_DIR = $(shell git rev-parse --show-toplevel)/../basejump_stl
 
 # basejump_stl verilog header include path
 EXTRA_ARGS += +incdir+$(BASEJUMP_STL_DIR)/bsg_misc
