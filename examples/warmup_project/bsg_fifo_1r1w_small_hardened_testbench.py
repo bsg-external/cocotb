@@ -16,7 +16,9 @@ WIDTH_P = 16
 ITERATION = 350
 
 # Flow control random seed
-CTRL_SEED = 1
+# Use different seeds on input and output sides for more randomness
+CTRL_INPUT_SEED  = 1
+CTRL_OUTPUT_SEED = 2
 
 # Testbench clock period
 CLK_PERIOD = 10
@@ -31,7 +33,7 @@ async def input_side_testbench(dut, seed):
 
     # Create control random generator for flow control
     control_random = random.Random()
-    control_random.seed(CTRL_SEED)
+    control_random.seed(CTRL_INPUT_SEED)
 
     # Initialize DUT interface values
     dut.v_i.value = 0
@@ -78,7 +80,7 @@ async def output_side_testbench(dut, seed):
 
     # Create control random generator for flow control
     control_random = random.Random()
-    control_random.seed(CTRL_SEED)
+    control_random.seed(CTRL_OUTPUT_SEED)
 
     # Initialize DUT interface values
     dut.yumi_i.value = 0
