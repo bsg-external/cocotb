@@ -31,7 +31,7 @@ module bsg_fifo_1r1w_small_hardened_wrapper #(parameter width_p = 16
 
     // Dump Waveforms
     initial begin
-        $fsdbDumpvars;
+        $fsdbDumpvars("+all");
     end
 
 endmodule
